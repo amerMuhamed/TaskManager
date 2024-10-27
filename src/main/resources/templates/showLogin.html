@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/loginStyles.css}">
+
+</head>
+<body>
+<div class="login-container">
+    <div class="login-box">
+        <h2>Welcome</h2>
+        <p>Keep your data safe</p>
+
+        <form method="POST" action="#" th:action="@{/authenticateTheUser}">
+            <div class="errorAndLogout">
+                <div th:if="${param.error}" class="error">
+                    <div class="messageError">
+
+                        <div> Invalid Username Or Password.</div>
+                    </div>
+                </div>
+
+                <div th:if="${param.logout}" id="logout-button" class="logout">
+
+                    <div class="messageLogout">
+                        You have been logged out.
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+
+                <input type="text" name="username" placeholder="User Name" required/>
+            </div>
+
+            <div class="input-group">
+                <input id="password-input" type="password" name="password" placeholder="Password" required/>
+                <span id="toggle-password" class="show-password">👁️</span>
+            </div>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+        <!--            go to register-->
+
+        <div class="register">
+            <span>Don't have an account?</span> <a th:href="@{/create}"> Sign up</a>
+        </div>
+    </div>
+</div>
+<script>
+    const passwordInput = document.getElementById('password-input');
+    const togglePassword = document.getElementById('toggle-password');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+</script>
+
+</body>
+</html>
+

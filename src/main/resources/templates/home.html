@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+    <link rel="stylesheet" th:href="@{/css/homeStyles.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <p>Task Manager</p>
+    </div>
+    <div class="nav-links">
+        <div sec:authorize="hasRole('ADMIN')">
+            <a style="display:flex; text-decoration: none; " th:href="@{/taskList}" class="redirect-button">Tasks</a>
+        </div>
+        <div sec:authorize="hasRole('ADMIN')">
+            <a style="display:flex; text-decoration: none; " th:href="@{/addTask}" class="redirect-button">Add Task</a>
+        </div>
+        <div class="get-users" sec:authorize="hasRole('ADMIN')">
+            <a style="display: flex;     text-decoration: none;" class="redirect-button" th:href="@{/users}">Users</a>
+        </div>
+        <div class="logout" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+            <form action="#" th:action="@{/logout}" method="post">
+                <input style="  background-color:red" class="redirect-button"
+                       onclick="if(!(confirm('Are you sure you want to Logout?'))) return false"
+                       type="submit"
+                       value="Logout"/>
+            </form>
+        </div>
+        <div class="enter" sec:authorize="!hasAnyRole('USER', 'ADMIN')">
+            <form action="#" th:action="@{/create}" method="get">
+                <button type="submit" class="redirect-button">sign up</button>
+            </form>
+            <form action="#" th:action="@{/showLoginPage}" method="get">
+                <button type="submit" class="redirect-button">Login</button>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+        <div sec:authorize="hasAnyRole('USER', 'ADMIN')">
+            <div class="who">
+                <div>
+                    Welcome <span sec:authentication="principal.username"></span>
+                </div>
+                <div>
+                    you are authorized as: <span sec:authentication="principal.authorities"></span>
+                </div>
+            </div>
+        </div>
+
+        <div th:if="${message != null}" class="message">
+            <p th:text="${message}"></p>
+        </div>
+        <div th:if="${task != null}" class="task-details">
+            <div th:if="${task.status != 'completed'}">
+
+                <h2>Task Details</h2>
+                <div class="task-info">
+                    <strong>Name:</strong> <span th:text="${task.name}"></span>
+                </div>
+                <div class="task-info">
+                    <strong>Priority:</strong> <span th:text="${task.priority}"></span>
+                </div>
+                <div class="task-info">
+                    <strong>Deadline:</strong> <span th:text="${task.deadline}"></span>
+                </div>
+                <div class="task-info">
+                    <strong>Status:</strong> <span th:text="${task.status}"></span>
+                </div>
+
+                <div class="description">
+                    <strong>Description:</strong>
+                    <p th:text="${task.description}"></p>
+                  </div>
+
+                <span th:if="${task.status == 'Pending'}">
+                    <a th:href="@{/acceptTask(taskId=${task.id})}" class="container-button">Accept</a>
+                </span>
+            </div>
+            <span th:if="${task.status == 'In Progress'}">
+                <h1>Upload a file to AWS S3</h1>
+                <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
+                        <input type="file" name="file"/>
+                        <button type="submit">Upload File</button>
+                </form>
+        </span>
+        </div>
+
+        <p th:if="${messageUpload != null}" th:text="${messageUpload}"/>
+</div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<meta charset="UTF-8">
+<title>New User</title>
+<link rel="stylesheet" th:href="@{/css/newUserStyles.css}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>New User</h1>
+        <a th:href="@{/}" class="home-btn">Home</a>
+    </header>
+    <div th:if="${errorMessage}" class="duplication">
+        <p th:text="${errorMessage}"></p>
+    </div>
+    <form action="#" th:action="@{/save-user}" method="post" th:object="${user}" class="user-form">
+        <input type="hidden" th:field="*{id}"/>
+        <label for="username">User Name:</label>
+        <input  type="text" id="username" th:field="*{userId}" /><br>
+        <span class="error" th:if="${#fields.hasErrors('userId')}"
+            th:errors="*{userId}"></span>
+        <br/>
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" th:field="*{phone}" /><br>
+        <span class="error" th:if="${#fields.hasErrors('phone')}"
+              th:errors="*{phone}"></span>
+        <br/>
+        <label for="email">Email:</label>
+        <input type="text" id="email" th:field="*{email}" /><br>
+        <span class="error" th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}"></span>
+        <br/>
+        <label for="password">Password:</label>
+        <div class="input-group">
+            <input class="passwordInput" type="password" id="password" th:field="*{password}" />
+            <span id="toggle-password" class="show-password">👁️</span>
+            <span class="error" th:if="${#fields.hasErrors('password')}"
+                    th:errors="*{password}" ></span>
+        </div>
+        <div class="checkbox-group">
+            <div class="check-one">
+                <input type="checkbox" id="active" th:field="*{enable}"/>
+                <label for="active">Active</label>
+
+            </div>
+            <!-- Checkbox for ROLE_USER, visible when the user is an admin -->
+            <div class="check-two" sec:authorize="hasRole('ADMIN')">
+                <label class="roles">Roles:</label>
+                <div class="check-one">
+                    <input id="userRole" type="checkbox" th:field="*{selectedRoles}" value="ROLE_USER"/>
+                    <label for="userRole">ROLE_USER</label>
+                </div>
+                <div class="check-one">
+                    <input id="adminRole " type="checkbox" th:field="*{selectedRoles}" value="ROLE_ADMIN"/>
+                    <label for="adminRole ">ROLE_ADMIN</label>
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn-save">Save</button>
+    </form>
+</div>
+
+<script>
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('toggle-password');
+
+    togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+</script>
+</body>
+</html>

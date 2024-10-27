@@ -1,0 +1,66 @@
+/* تعميم النمط الأساسي للصفحة */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* نمط الحاوية الرئيسية */
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+/* نمط العناوين */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* نمط مجموعة النموذج */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* نمط تسميات الحقول */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+/* نمط الحقول النصية */
+.form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* نمط زر الحفظ */
+.btn {
+    width: 100%;
+    background-color: #5cb85c;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* تفاعل الزر عند التمرير عليه */
+.btn:hover {
+    background-color: #4cae4c;
+}

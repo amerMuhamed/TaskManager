@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+    <link rel="stylesheet" th:href="@{/css/listUsersStyles.css}">
+    <link rel="stylesheet" th:href="@{/css/navbar.css}">
+</head>
+<body>
+<nav class="navbar">
+    <div class="logo">
+        <p>Task Manager</p>
+    </div>
+    <div class="nav-links">
+        <div class="home">
+            <form action="#" th:action="@{/}" method="get">
+                <input class="redirect-button" type="submit" value="Home"/>
+            </form>
+        </div>
+        <div>
+            <a style="display:flex; text-decoration: none; " th:href="@{/taskList}" class="redirect-button">Tasks</a>
+        </div>
+        <div>
+            <a style="display:flex; text-decoration: none; " th:href="@{/addTask}" class="redirect-button">Add Task</a>
+        </div>
+        <div class="get-users ">
+            <a style="display: flex;     text-decoration: none;" class="redirect-button" th:href="@{/users}"> Users</a>
+        </div>
+        <div class="logout" sec:authorize="hasAnyRole('USER', 'ADMIN')">
+            <form action="#" th:action="@{/logout}" method="post">
+                <input style="  background-color:red" class="redirect-button"
+                       onclick="if(!(confirm('Are you sure you want to Logout?'))) return false"
+                       type="submit"
+                       value="Logout"/>
+            </form>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div>
+        <form class="form" action="#" method="get" th:action="@{/users}">
+            <input class="search" type="search" name="name" th:value="${name}" placeholder="Search...."/>
+            <input class="submit" type="submit" value="Search"/>
+        </form>
+    </div>
+
+    <div>
+
+        <a th:href="@{/create}"
+           class="add-employee-btn">
+            Add Employee
+        </a>
+    </div>
+    <table class="styled-table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="tempUser:${users}">
+            <td th:text="${tempUser.userId}"/>
+            <td th:text="${tempUser.phone}"/>
+            <td th:text="${tempUser.email}"/>
+            <td>
+                <ul>
+                    <li th:each="role : ${tempUser.roles}" th:text="${role.role}"></li>
+                </ul>
+            </td>
+            <td>
+                <div class="delAndUpd">
+                    <div class="delete">
+                        <a th:href="@{/delete(userId=${tempUser.id})}"
+                           class="buttonDelete"
+                           onclick="if(!(confirm('Are you sure you want to Delete this employee?'))) return false">
+                            Delete
+                        </a>
+                    </div>
+                    <div class="update">
+                        <a th:href="@{/update(userId=${tempUser.id})}"
+                           class="add-employee-btn">
+                            Update
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>

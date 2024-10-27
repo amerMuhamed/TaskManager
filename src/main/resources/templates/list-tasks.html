@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tasks List</title>
+    <link rel="stylesheet" href="css/listTasksStyles.css">
+</head>
+<body>
+<div class="container">
+    <h1>Tasks List</h1>
+    <div class="table-wrapper">
+        <div class="update">
+            <a th:href="@{/}"
+               class="add-employee-btn">
+                Home
+            </a>
+        </div>
+        <table>
+            <thead>
+            <tr>
+                <th>Task Name</th>
+                <th>Priority</th>
+                <th>Deadline</th>
+                <th>Status</th>
+                <th>User Name</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task : ${tasks}">
+                <td data-label="Task Name" th:text="${task.name}"></td>
+                <td data-label="Priority" th:text="${task.priority}"></td>
+                <td data-label="Deadline" th:text="${task.deadline}"></td>
+                <td data-label="Status" th:text="${task.status}"></td>
+                <td data-label="User Name" th:text="${task.userId.getUserId()}"></td>
+                <td>
+                    <div class="delAndUpd">
+                        <div class="delete">
+                            <a th:href="@{/deleteTask(taskId=${task.id})}"
+                               class="buttonDelete"
+                               onclick="if(!(confirm('Are you sure you want to Delete this Task?'))) return false">
+                                Delete
+                            </a>
+                        </div>
+                        <div class="update">
+                            <a th:href="@{/updateTask(taskId=${task.id})}"
+                               class="add-employee-btn">
+                                Update
+                            </a>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

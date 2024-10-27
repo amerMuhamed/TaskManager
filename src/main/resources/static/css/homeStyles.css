@@ -1,0 +1,100 @@
+/* homeStyles.css */
+
+/* General body styles */
+body {
+    background-color: #f0f8ff; /* Alice blue background for a fresh look */
+    font-family: 'Arial', sans-serif; /* Clean font style */
+    color: #444; /* Darker text for better readability */
+    line-height: 1.6; /* Spacing between lines */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default padding */
+}
+
+/* Container for the content */
+.container {
+    max-width: 800px; /* Maximum width of the content */
+    margin: 15px auto; /* Centered with margin */
+    padding: 20px; /* Padding around the content */
+    background: #ffffff; /* White background for the content area */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Soft shadow effect */
+    border-radius: 15px; /* More pronounced rounded corners */
+}
+
+/* Welcome message styling */
+.welcome {
+    background-color: #007bff; /* Bright blue background for welcome */
+    color: white; /* White text for contrast */
+    padding: 20px; /* Increased padding for better presentation */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 24px; /* Larger font size for prominence */
+    text-align: center; /* Center text */
+    margin-bottom: 20px; /* Space below the welcome message */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+/* Subtitle for authorization */
+.who {
+    text-align: center; /* Center the subtitle */
+    font-size: 18px; /* Slightly larger font size */
+    margin-bottom: 20px; /* Space below */
+    color: #555; /* Medium gray for better readability */
+}
+
+/* Title for task details */
+h2 {
+    text-align: center; /* Center the title */
+    color: #343a40; /* Darker shade for title */
+    margin-bottom: 20px; /* Space below the title */
+    font-size: 26px; /* Increase title font size */
+}
+
+/* Styling for task information */
+.task-info {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    padding: 12px; /* Padding for each item */
+    border-bottom: 1px solid #ddd; /* Bottom border for each item */
+}
+
+.task-info:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+/* Description area */
+.description {
+    padding: 15px; /* Padding around description */
+    border: 1px solid #ddd; /* Border for description area */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background for description */
+    margin: 20px 0; /* Space above and below */
+    max-height: 250px; /* Increased maximum height for the description */
+    overflow-y: auto; /* Scrollable if exceeds max height */
+}
+
+/* Highlighting for the accept button */
+.container-button {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    padding: 12px 20px; /* Padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px; /* Increase font size */
+    display: block; /* Block display */
+    width: 100%; /* Full width */
+    transition: background-color 0.3s; /* Smooth transition */
+    text-align: center; /* Center text */
+    margin-top: 20px; /* Space above the button */
+}
+
+.container-button:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Message styling */
+.message {
+    text-align: center; /* Center the message */
+    color: #d9534f; /* Red color for error messages */
+    font-weight: bold; /* Bold text */
+    margin: 20px 0; /* Space above and below */
+}

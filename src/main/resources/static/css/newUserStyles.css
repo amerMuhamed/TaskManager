@@ -1,0 +1,140 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: white;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.home-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    cursor:pointer;
+}
+
+.home-btn:hover {
+    background-color: #0056b3;
+}
+
+.user-form label {
+ font-size: 18px;
+margin: 20px 0 10px 0;
+    color: #555;
+    display: block;
+}
+
+.user-form input[type="text"],
+.user-form input[type="tel"],
+.user-form input[type="email"],
+.user-form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    transition: border 0.3s ease;
+    margin:0px
+}
+
+.user-form input:focus {
+    border-color: #007bff;
+}
+
+.checkbox-group {
+   flex-direction: column;
+       display: flex;
+       align-items: flex-start;
+       margin-bottom: 20px;
+}
+.check-one{
+display:flex;
+margin-bottom: 4px;
+label{
+margin:0;
+
+}
+
+}
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.btn-save {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 27px;
+}
+.show-password {
+    position: absolute;
+    right: 15px;
+    top: 32%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+}
+.check-two{
+display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    .roles{
+    font-size: 28px;
+        margin: 3px;}
+}
+.error{
+    color: red;
+    font-size: 12px;
+}
+
+.duplication{
+text-align: center;
+    font-size: 21px;
+    color: red;
+    }

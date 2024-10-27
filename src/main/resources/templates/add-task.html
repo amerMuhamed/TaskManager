@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+    <link rel="stylesheet" th:href="@{/css/addTaskStyles.css}">
+</head>
+<body>
+<div class="form-container">
+    <h1>Add Task</h1>
+    <form method="post" class="form" th:object="${task}" action="#" th:action="@{saveTask}">
+        <input type="hidden" th:field="*{id}"/>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" th:field="*{name}" class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="priority">Priority</label>
+            <select  th:field="*{priority}"  id="priority" class="form-control"  >
+                <option value="High" selected>Task Priority</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select th:field="*{status}"  id="status"   class="form-control"  >
+                <option value="Pending" selected>Task Status</option>
+                <option value="Pending">Pending</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="user">Available Users: </label>
+            <select id="user" th:field="*{userId}" class="form-control">
+                <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.userId}">User</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="deadline">Deadline</label>
+            <input type="datetime-local" id="deadline" th:field="*{deadline}" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" th:field="*{description}" class="form-control"></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn">Save</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

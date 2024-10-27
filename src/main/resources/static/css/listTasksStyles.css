@@ -1,0 +1,172 @@
+/* Base styles */
+body {
+    font-family: 'Poppins';
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+}
+
+.container {
+   width:100%
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+    font-size: 2rem;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+        padding: 16px 0 0 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 17px 9px 12px 4px;
+    text-align: center;
+
+}
+
+th {
+    background-color: #3c3e41;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+td {
+    color: #555;
+    background-color: #f7f7f7;
+}
+
+tr:nth-child(even) td {
+    background-color: #bdafafa6;
+}
+
+tr:hover td {
+    background-color: #e0e0e0;
+    cursor: pointer;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 10px;
+    }
+
+    td {
+        position: relative;
+        width:100%
+    }
+
+
+
+    td:before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-weight: bold;
+        color: #0062cc;
+    }
+}
+
+/* Color transitions for hover effects */
+tr:hover td {
+    background-color: #d1ecf1;
+    transition: background-color 0.2s ease-in-out;
+}
+
+/* Typography enhancements */
+body, td, th {
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Add subtle animations */
+.container {
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.delAndUpd{
+display:flex;
+gap:4px;
+justify-content:center;
+}
+.buttonDelete{
+   background-color: red; /* Red background */
+    color: white;              /* White text */
+    border: none;              /* No border */
+    padding: 9px 18px;        /* Padding for button size */
+    font-size: 16px;           /* Font size */
+    border-radius: 8px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow */
+    text-decoration: none;
+}
+.buttonDelete:focus {
+    outline: none; /* Remove focus outline */
+}
+.add-employee-btn {
+    background-color: #007bff; /* Blue background */
+    color: white;              /* White text */
+    border: none;              /* No border */
+    padding: 9px 18px;        /* Padding for button size */
+    font-size: 16px;           /* Font size */
+    border-radius: 8px;        /* Rounded corners */
+    cursor: pointer;           /* Pointer cursor on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Light shadow */
+    text-decoration: none;
+}
+
+.add-employee-btn:hover {
+      background-color: #0056b3; /* Darker blue on hover */
+}
+
+.add-employee-btn:focus {
+    outline: none; /* Remove focus outline */
+}
