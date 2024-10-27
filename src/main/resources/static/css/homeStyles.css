@@ -75,7 +75,7 @@ h2 {
 .container-button {
     background-color: #28a745; /* Green background */
     color: white; /* White text */
-    padding: 12px 20px; /* Padding */
+    padding: 12px 0px; /* Padding */
     border: none; /* Remove border */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
@@ -98,3 +98,7 @@ h2 {
     font-weight: bold; /* Bold text */
     margin: 20px 0; /* Space above and below */
 }
+.btn{
+padding: 6px;
+    border-radius: 5px;
+    cursor: pointer;}

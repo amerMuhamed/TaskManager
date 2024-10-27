@@ -48,7 +48,7 @@ public class AuthenticationDemo {
                                 .requestMatchers("/deleteTask").hasRole("ADMIN")
                                 .requestMatchers("/updateTask").hasRole("ADMIN")
                                 .requestMatchers("/css/**", "/js/**").permitAll()
-                                .requestMatchers("/completeTask/**").hasAnyRole("ADMIN","USER")
+
                                 .anyRequest().authenticated()
                 )
                 .formLogin(form ->

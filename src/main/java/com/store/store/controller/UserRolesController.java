@@ -71,7 +71,7 @@ public class UserRolesController {
     public String createUser(Model theModel) {
         User theUser = (User) theModel.asMap().get("user");
         if (theUser == null) {
-            theUser = new User(); // إنشاء مستخدم جديد إذا لم يكن موجوداً
+            theUser = new User();
         }
         theModel.addAttribute("user", theUser);
         return "createUser";

@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Store</title>
+    <title>Tak Manager</title>
     <link rel="stylesheet" th:href="@{/css/homeStyles.css}">
     <link rel="stylesheet" th:href="@{/css/navbar.css}">
 
@@ -86,7 +86,7 @@
                 <h1>Upload a file to AWS S3</h1>
                 <form method="post" th:action="@{/upload}" enctype="multipart/form-data">
                         <input type="file" name="file"/>
-                        <button type="submit">Upload File</button>
+                        <button type="submit" class="btn">Upload File</button>
                 </form>
         </span>
         </div>

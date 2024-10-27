@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-
 public class TaskController {
     private UserService userService;
     private TaskService taskService;

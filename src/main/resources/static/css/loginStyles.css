@@ -41,7 +41,7 @@ h2 {
 
 p {
     color: #888;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 
 .input-group {
@@ -94,3 +94,7 @@ input:focus {
 .login-btn:hover {
     background-color: #FFB800;
 }
+.invalidMessage{
+    color: red;
+    font-size: 18px;
+    margin-bottom: 20px;}
