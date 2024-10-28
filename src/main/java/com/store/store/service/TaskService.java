@@ -12,4 +12,6 @@ public interface TaskService {
    public void deleteTask(Task task);
 
    public Task findTaskById(int theId);
+
+   Task findTaskByUserId(String userId);
 }

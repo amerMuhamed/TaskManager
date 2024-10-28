@@ -3,6 +3,7 @@ package com.store.store.controller;
 import com.store.store.entity.Task;
 import com.store.store.entity.User;
 import com.store.store.excepions.DuplicateUserException;
+import com.store.store.service.TaskService;
 import com.store.store.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -24,11 +25,12 @@ import java.util.List;
 public class UserRolesController {
     private UserService userService;
     private HttpSession session;
-
+private TaskService taskService;
     @Autowired
-    public UserRolesController(UserService userService, HttpSession session) {
+    public UserRolesController(UserService userService, HttpSession session, TaskService taskService) {
         this.userService = userService;
         this.session = session;
+        this.taskService = taskService;
     }
 
     @InitBinder
@@ -36,19 +38,20 @@ public class UserRolesController {
         StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
         dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
     }
-
     @GetMapping("/")
     public String showHome(Model theModel) {
         User user = (User) session.getAttribute("user");
         if (user != null) {
+            // Use the new method to fetch tasks for the logged-in user
+       Task task =  taskService.findTaskByUserId(user.getUserId());
 
-            if (user.getTask() == null) {
+            if (task==null) {
                 theModel.addAttribute("message", "No tasks Available");
             } else {
-                theModel.addAttribute("task", user.getTask());
+                theModel.addAttribute("task", task);
+                System.out.println(task);
             }
-        }
-        else{
+        } else {
             return "redirect:/showLoginPage";
         }
         return "home";

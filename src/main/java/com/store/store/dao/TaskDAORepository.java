@@ -4,4 +4,5 @@ import com.store.store.entity.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TaskDAORepository extends JpaRepository<Task,Integer> {
+    Task findByUserId_UserId(String userId);
 }

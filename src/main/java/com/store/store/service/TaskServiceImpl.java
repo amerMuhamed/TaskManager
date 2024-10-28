@@ -44,5 +44,8 @@ public class TaskServiceImpl implements TaskService{
         return theTask;
     }
 
-
+    @Override
+    public Task findTaskByUserId(String userId) {
+        return taskDAORepository.findByUserId_UserId(userId);
+    }
 }
