@@ -19,9 +19,9 @@ CREATE TABLE `members` (
 -- Insert data into the members table
 INSERT INTO `members` (login_id, pw, active, phone, email)
 VALUES
-('amer', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789596', 'amermuhamed@gmail.com'),
-('ali', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789597', 'bmermuhamed@gmail.com'),
-('omar', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789598', 'cmermuhamed@gmail.com');
+('admin1', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789596', 'admin1@gmail.com'),
+('user1', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789597', 'user1@gmail.com'),
+('user2', '{bcrypt}$2a$10$qeS0HEh7urweMojsnwNAR.vcXJeXR1UcMRZ2WcGQl9YeuspUdgF.q', 1, '01157789598', 'user2@gmail.com');
 
 CREATE TABLE `tasks` (
   `id` int NOT NULL AUTO_INCREMENT,
